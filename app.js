@@ -23,6 +23,10 @@ app.use(session({
   saveUniniatialized: true
 }));
 
+let requirements = {
+  'username': 'myron',
+  'password': 'anthony'
+}
 let auth = function(req, res, next) {
   if (req.session && req.session.admin) {
      return next ();
@@ -47,11 +51,11 @@ let auth = function(req, res, next) {
                 req.session.admin = true;
                 res.redirect('/');
                 }
-                console.log(req.body)
+
               });
 
               app.get('/content', auth, function(req, res) {
-                req.session.destroy();
+
                 res.render('logout');
                 });
 
