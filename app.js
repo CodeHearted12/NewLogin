@@ -13,15 +13,19 @@ app.set('view engine', 'mustache');
 
 app.use(bodyParser.urlencoded({ extended: false
 
-}));
+    }
+  )
+);
 
 app.use(express.static('public'));
 
 app.use(session({
   secret: '2C44-4D44-WppQ385',
   resave: false,
-  saveUniniatialized: true
-}));
+  saveUninitialized: true
+    }
+  )
+);
 
 let requirements = {
   'username': 'myron',
